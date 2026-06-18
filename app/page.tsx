@@ -1,4 +1,4 @@
-// Hello from Dom
+// Hello from Dominic
 import Image from "next/image";
 
 export default function Home() {
