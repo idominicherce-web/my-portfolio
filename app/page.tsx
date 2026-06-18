@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function HomePage() {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-center p-8 bg-zinc-950 text-zinc-50 font-sans">
+		<main className="flex min-h-[calc(100vh-65px)] flex-col items-center justify-center p-8 bg-zinc-950 text-zinc-50 font-sans">
 			{/* Hero Section */}
 			<section className="text-center max-w-2xl flex flex-col gap-4 my-auto">
 				<h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-linear-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
@@ -15,7 +15,7 @@ export default function HomePage() {
 					Building modern web applications using Next.js, React 19, and full-stack cloud ecosystems.
 				</p>
 
-				{/* Call To Actions linked to your routes */}
+				{/* Call To Actions */}
 				<div className="flex gap-4 justify-center mt-4">
 					<Link
 						href="/projects"
