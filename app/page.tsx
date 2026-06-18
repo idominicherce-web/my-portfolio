@@ -34,7 +34,7 @@ export default function HomePage() {
 
 			{/* Subtle Footer */}
 			<footer className="text-zinc-600 text-xs tracking-wider font-mono mt-auto py-4">
-				© 2026 • Powered by Next.js & Biome
+				&copy; {new Date().getFullYear()} • Powered by Next.js & Biome
 			</footer>
 		</main>
 	);
