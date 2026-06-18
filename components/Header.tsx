@@ -4,6 +4,13 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Header() {
+	const navLinks = [
+		{ name: "Home", href: "/" },
+		{ name: "About", href: "/about" }, // This links directly to app/about/page.tsx
+		{ name: "Projects", href: "/projects" },
+		{ name: "Contact", href: "/contact" },
+	];
+
 	// A standard React hook to manage the state of a mobile navigation menu
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -19,18 +26,15 @@ export default function Header() {
 
 				{/* Desktop Navigation Router Links */}
 				<nav className="hidden md:flex gap-6 text-sm font-medium text-zinc-400">
-					<Link
-						href="/projects"
-						className="hover:text-zinc-50 transition-colors"
-					>
-						Projects
-					</Link>
-					<Link
-						href="/contact"
-						className="hover:text-zinc-50 transition-colors"
-					>
-						Contact
-					</Link>
+					{navLinks.map((link) => (
+						<Link
+							key={link.href}
+							href={link.href}
+							className="hover:text-zinc-50 transition-colors"
+						>
+							{link.name}
+						</Link>
+					))}
 				</nav>
 
 				{/* Mobile Hamburger Button using our Hook state */}
@@ -64,6 +68,12 @@ export default function Header() {
 			{/* Dropdown Mobile Menu controlled seamlessly by the hook */}
 			{isOpen && (
 				<nav className="md:hidden border-t border-zinc-900 bg-zinc-950 p-4 flex flex-col gap-4 text-sm font-medium text-zinc-400">
+					<Link href="/" onClick={() => setIsOpen(false)}>
+						Home
+					</Link>
+					<Link href="/about" onClick={() => setIsOpen(false)}>
+						About
+					</Link>
 					<Link
 						href="/projects"
 						onClick={() => setIsOpen(false)}
