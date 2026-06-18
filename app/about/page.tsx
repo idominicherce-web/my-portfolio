@@ -13,10 +13,10 @@ export default function AboutPage() {
 
 			<div className="flex flex-col gap-4 text-zinc-300 leading-relaxed text-sm md:text-base">
 				<p>
-					Hello! I am Dominic, a developer passionate about building clean,
+					Hello! I am Dominic, a developer dedicated to building clean,
 					accessible, and highly scalable user interfaces. Currently, I am
 					refining my full-stack engineering skills at Stratpoint, working with
-					modern tools like Next.js, React 19, and cloud-native databases.
+					modern tools like Next.js, React 19, Neon cloud-native databases, and Vercel deployment.
 				</p>
 				<p>
 					My core technical focus involves building responsive frontend systems,
@@ -28,7 +28,7 @@ export default function AboutPage() {
 
 			<div className="mt-4 p-5 rounded-xl border border-zinc-800 bg-zinc-900/30">
 				<h2 className="text-lg font-semibold text-zinc-100 mb-3">
-					Core Tooling Stack
+					Core Tech Stack
 				</h2>
 				<div className="flex flex-wrap gap-2">
 					{[
@@ -37,6 +37,10 @@ export default function AboutPage() {
 						"Tailwind v4",
 						"TypeScript",
 						"Biome",
+                        "Neon DB",
+                        "Vercel Deployment",
+                        "Android Studio",
+                        "Unity Game Engine"
 					].map((skill) => (
 						<span
 							key={skill}
