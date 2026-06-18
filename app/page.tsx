@@ -12,7 +12,8 @@ export default function HomePage() {
 					Software Engineer Intern • Stratpoint
 				</p>
 				<p className="text-zinc-500 text-sm md:text-base max-w-md mx-auto">
-					Building modern web applications using Next.js, React 19, and full-stack cloud ecosystems.
+					Building modern web applications using Next.js, React 19, and
+					full-stack cloud ecosystems.
 				</p>
 
 				{/* Call To Actions */}
