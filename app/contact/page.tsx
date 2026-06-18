@@ -13,7 +13,12 @@ export default function ContactPage() {
 			{/* Placeholder Form: Later we can add 'use client' and a state hook here for processing */}
 			<form className="flex flex-col gap-4 mt-4 bg-zinc-900/30 p-6 rounded-xl border border-zinc-800">
 				<div className="flex flex-col gap-1.5">
-					<label htmlFor="name" className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Name</label>
+					<label
+						htmlFor="name"
+						className="text-xs font-medium text-zinc-400 uppercase tracking-wider"
+					>
+						Name
+					</label>
 					<input
 						id="name"
 						type="text"
@@ -23,7 +28,12 @@ export default function ContactPage() {
 				</div>
 
 				<div className="flex flex-col gap-1.5">
-					<label htmlFor="email" className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Email</label>
+					<label
+						htmlFor="email"
+						className="text-xs font-medium text-zinc-400 uppercase tracking-wider"
+					>
+						Email
+					</label>
 					<input
 						id="email"
 						type="email"
@@ -33,7 +43,12 @@ export default function ContactPage() {
 				</div>
 
 				<div className="flex flex-col gap-1.5">
-					<label htmlFor="message" className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Message</label>
+					<label
+						htmlFor="message"
+						className="text-xs font-medium text-zinc-400 uppercase tracking-wider"
+					>
+						Message
+					</label>
 					<textarea
 						id="message"
 						rows={4}
