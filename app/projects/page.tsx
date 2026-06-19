@@ -1,23 +1,25 @@
-// Latest Changes: Turn page into an Async Server Component
 import ProjectCard from "@/components/ProjectCard";
 
-// A small utility function to simulate a database network delay
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export default async function ProjectsPage() {
-	// Simulate fetching projects from a database (takes 2 seconds)
 	await delay(2000);
 
+	// PATCH: Added precise slug key identifiers matching the dynamic data dictionary
 	const projects = [
 		{
-			title: "Project 1",
-			description: "A brief description of the project.",
-			tech: ["Next.js", "React", "Tailwind CSS", "TypeScript"],
+			slug: "portfolio-website",
+			title: "Portfolio Website",
+			description:
+				"A high-performance, responsive portfolio built using Next.js, React 19, Tailwind CSS v4, and Biome.",
+			tech: ["Next.js", "React 19", "Tailwind v4", "TypeScript"],
 		},
 		{
-			title: "Project 2",
-			description: "A brief description of the project.",
-			tech: ["Next.js", "PostgreSQL", "TypeScript"],
+			slug: "task-manager",
+			title: "Intern Task Management System",
+			description:
+				"A production-ready workspace tracker built to handle intern deliverables during the Stratpoint program.",
+			tech: ["Next.js", "TypeScript", "PostgreSQL", "Neon Database"],
 		},
 	];
 
@@ -36,7 +38,8 @@ export default async function ProjectsPage() {
 			<div className="grid md:grid-cols-2 gap-4 mt-4">
 				{projects.map((project) => (
 					<ProjectCard
-						key={project.title}
+						key={project.slug} // Use slug as the unique React list map key item
+						slug={project.slug}
 						title={project.title}
 						description={project.description}
 						tech={project.tech}
