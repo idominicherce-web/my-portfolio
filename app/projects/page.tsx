@@ -1,5 +1,13 @@
-export default function ProjectsPage() {
-	// Draft data for portfolio projects
+// Latest Changes: Turn page into an Async Server Component
+import ProjectCard from "@/components/ProjectCard";
+
+// A small utility function to simulate a database network delay
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export default async function ProjectsPage() {
+	// Simulate fetching projects from a database (takes 2 seconds)
+	await delay(2000);
+
 	const projects = [
 		{
 			title: "Project 1",
@@ -27,27 +35,12 @@ export default function ProjectsPage() {
 
 			<div className="grid md:grid-cols-2 gap-4 mt-4">
 				{projects.map((project) => (
-					<div
+					<ProjectCard
 						key={project.title}
-						className="p-5 rounded-xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-md flex flex-col gap-3 hover:border-zinc-700 transition-colors"
-					>
-						<h2 className="text-xl font-semibold text-zinc-100">
-							{project.title}
-						</h2>
-						<p className="text-zinc-400 text-sm leading-relaxed flex-1">
-							{project.description}
-						</p>
-						<div className="flex flex-wrap gap-2 mt-2">
-							{project.tech.map((t) => (
-								<span
-									key={t}
-									className="text-xs font-mono px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-300 border border-zinc-700"
-								>
-									{t}
-								</span>
-							))}
-						</div>
-					</div>
+						title={project.title}
+						description={project.description}
+						tech={project.tech}
+					/>
 				))}
 			</div>
 		</main>

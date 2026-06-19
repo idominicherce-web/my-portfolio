@@ -16,7 +16,8 @@ export default function AboutPage() {
 					Hello! I am Dominic, a developer dedicated to building clean,
 					accessible, and highly scalable user interfaces. Currently, I am
 					refining my full-stack engineering skills at Stratpoint, working with
-					modern tools like Next.js, React 19, Neon cloud-native databases, and Vercel deployment.
+					modern tools like Next.js, React 19, Neon cloud-native databases, and
+					Vercel deployment.
 				</p>
 				<p>
 					My core technical focus involves building responsive frontend systems,
@@ -37,10 +38,10 @@ export default function AboutPage() {
 						"Tailwind v4",
 						"TypeScript",
 						"Biome",
-                        "Neon DB",
-                        "Vercel Deployment",
-                        "Android Studio",
-                        "Unity Game Engine"
+						"Neon DB",
+						"Vercel Deployment",
+						"Android Studio",
+						"Unity Game Engine",
 					].map((skill) => (
 						<span
 							key={skill}
