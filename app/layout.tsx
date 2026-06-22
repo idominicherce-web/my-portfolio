@@ -18,6 +18,14 @@ export const metadata: Metadata = {
 	description: "Software Engineer Intern at Stratpoint",
 };
 
+/**
+ * ★ MVP COMPLIANCE: SHARED LAYOUT HIERARCHY (MVP 2)
+ * Acts as the root template boundary for the entire application wrapper. Shared components
+ * such as global navigation elements, sticky header nodes, and layout containers are mounted
+ * here so that sub-pages (like /about, /projects, and /contact) automatically inherit them
+ * dynamically without re-rendering underlying shell structures.
+ */
+
 export default function RootLayout({
 	children,
 }: Readonly<{

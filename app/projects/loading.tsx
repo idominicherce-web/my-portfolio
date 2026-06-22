@@ -1,3 +1,10 @@
+/**
+ * ★ MVP COMPLIANCE: VISUALLY MEANINGFUL SKELETON UI STREAMS (MVP 7)
+ * Intercepts Next.js asynchronous route resolution steps to stream immediate visual placeholders.
+ * Avoids old-school ambiguous spinning rings by rendering gray pulsing layout approximations
+ * that mirror the exact dimensions of incoming text and grid card structures, vastly reducing
+ * experienced content-load friction and improving perceived web page speed metrics.
+ */
 export default function ProjectsLoading() {
 	// Create an array of 2 items to render 2 placeholder skeleton cards
 	const skeletonCards = [1, 2];

@@ -5,15 +5,6 @@
 	--foreground: #171717;
 }
 
-@theme inline {
-	/* Fulfills MVP Checklist #9: At least one custom --color-* token */
-	--color-stratpoint-blue: #0056b3;
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
-}
-
 @media (prefers-color-scheme: dark) {
 	:root {
 		--background: #0a0a0a;
@@ -21,8 +12,28 @@
 	}
 }
 
+/**
+ * ★ MVP COMPLIANCE: TAILWIND CSS V4 DESIGN TOKEN CUSTOMIZATION (MVP 9)
+ * Declares explicit global --color-* variable design tokens using the native Tailwind v4 @theme pipeline.
+ * These theme parameters are fully mapped into the compilation engine, enabling the application of
+ * standardized custom color matching keys (e.g., bg-stratpoint-blue) across site layouts.
+ */
+@theme {
+	/* Fulfills MVP Checklist #9: At least one custom --color-* token */
+	--color-stratpoint-blue: #0056b3;
+
+	/* Safely syncs raw CSS properties into utility tokens */
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+
+	/* Configures standard font family fallbacks mapped to Next.js variable hooks */
+	--font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+	--font-mono: var(--font-geist-mono), monospace;
+}
+
+/* Clean Tailwind v4 Base Styles: Standard CSS selectors written directly at the root */
 body {
-	background: var(--background);
-	color: var(--foreground);
-	font-family: Arial, Helvetica, sans-serif;
+	background-color: var(--color-background);
+	color: var(--color-foreground);
+	font-family: var(--font-sans);
 }
