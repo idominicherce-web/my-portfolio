@@ -39,7 +39,7 @@ export default function HomePage() {
 				<div className="flex gap-4 justify-center mt-4">
 					<Link
 						href="/projects"
-						className="px-5 py-2.5 rounded-lg bg-blue-600 font-semibold hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20"
+						className="px-5 py-2.5 rounded-lg bg-stratpoint-blue font-semibold hover:opacity-90 transition-all shadow-lg shadow-blue-500/20"
 					>
 						View Projects
 					</Link>
