@@ -1,9 +1,9 @@
 import ProjectCard from "@/components/ProjectCard";
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+// const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export default async function ProjectsPage() {
-	await delay(1500); // Simulate a temporary server transmission delay to watch the skeleton stream
+	// await delay(1500); // Simulate a temporary server transmission delay to watch the skeleton stream
 
 	// PATCH: Added precise slug key identifiers matching the dynamic data dictionary
 	const projects = [
