@@ -1,3 +1,4 @@
+// components/ProjectHeroLayout.tsx
 "use client";
 
 import { type ReactNode, useEffect, useState } from "react";
@@ -13,46 +14,45 @@ export default function ProjectHeroLayout({
 	tags,
 	children,
 }: ProjectHeroLayoutProps) {
-	const [scrollY, setScrollY] = useState(0);
+	const [scrollProgress, setScrollProgress] = useState(0);
 
 	useEffect(() => {
 		const handleScroll = () => {
-			setScrollY(window.scrollY);
+			const totalHeight =
+				document.documentElement.scrollHeight - window.innerHeight;
+			if (totalHeight > 0) {
+				setScrollProgress(window.scrollY / totalHeight);
+			}
 		};
+
 		window.addEventListener("scroll", handleScroll, { passive: true });
+		handleScroll();
+
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	// Calculate interpolation values based on scroll range (0px to 300px)
-	const progress = Math.min(scrollY / 300, 1);
+	// Text scaling parameters (scale 0.96 to 1.04)
+	const textScale = 0.96 + scrollProgress * 0.08;
+	// Parallax translation height constraints
+	const titleTranslateY = -scrollProgress * 50;
 
 	return (
-		<div className="w-full min-h-screen flex flex-col items-center">
-			{/* Title Section: Starts centered, rolls up smoothly, scales down slightly */}
+		<div className="w-full min-h-screen flex flex-col items-center bg-zinc-950 text-zinc-100 selection:bg-blue-500/30 overflow-x-hidden">
+			{/* Parallax Center Title Header Block */}
 			<div
-				style={{
-					paddingTop: `${Math.max(40 - progress * 35, 5)}vh`,
-					paddingBottom: `${Math.max(40 - progress * 38, 2)}vh`,
-				}}
-				className="w-full flex flex-col items-center text-center transition-all duration-75 ease-out will-change-[padding]"
+				style={{ transform: `translateY(${titleTranslateY}px)` }}
+				className="w-full flex flex-col items-center text-center pt-[35vh] pb-[15vh] px-6 md:px-8 will-change-transform transition-transform duration-75 ease-out"
 			>
-				<div className="max-w-2xl px-8 space-y-4">
-					<h1
-						style={{ transform: `scale(${1 - progress * 0.15})` }}
-						className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-100 transition-transform duration-75 origin-center"
-					>
+				<div className="max-w-2xl w-full space-y-4 animate-fade-in">
+					<h1 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-100 drop-shadow-md">
 						{title}
 					</h1>
 
-					{/* Centered Tags with dynamic fading opacity */}
-					<div
-						style={{ opacity: 1 - progress * 0.2 }}
-						className="flex gap-2 flex-wrap justify-center items-center transition-opacity duration-75"
-					>
+					<div className="flex gap-2 flex-wrap justify-center items-center">
 						{tags.map((tag) => (
 							<span
 								key={tag}
-								className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-zinc-800/80 border border-zinc-700 text-zinc-400 shadow-xs"
+								className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-400 shadow-sm"
 							>
 								{tag}
 							</span>
@@ -61,16 +61,23 @@ export default function ProjectHeroLayout({
 				</div>
 			</div>
 
-			{/* Content Section: Fades and slides in beautifully below the title on scroll */}
-			<div
-				style={{
-					opacity: progress,
-					transform: `translateY(${Math.max(40 - progress * 40, 0)}px)`,
-				}}
-				className="w-full max-w-2xl px-8 pb-24 transition-all duration-500 ease-out will-change-[transform,opacity]"
-			>
-				<hr className="border-zinc-800 mb-8" />
-				{children}
+			{/* Main Container Assembly Block */}
+			<div className="w-full max-w-3xl px-6 md:px-8 pb-32 flex flex-col gap-8">
+				<hr className="border-zinc-900 w-full" />
+
+				<div className="w-full flex flex-col gap-8">
+					<div className="w-full">{children}</div>
+
+					{/* Scoped global styles for synchronized text transformation loops */}
+					<style jsx global>{`
+            .scroll-dynamic-text {
+              transform: scale(${textScale});
+              transform-origin: top center;
+              transition: transform 100ms ease-out;
+              will-change: transform;
+            }
+          `}</style>
+				</div>
 			</div>
 		</div>
 	);

@@ -18,9 +18,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 				</p>
 			</div>
 
-			<div className="flex items-center justify-between gap-2 mt-2">
-				<div className="flex gap-1.5 flex-wrap">
-					{project.tags.slice(0, 2).map((tag) => (
+			<div className="flex items-end justify-between gap-4 mt-2">
+				<div className="flex gap-1.5 flex-wrap max-w-[70%]">
+					{project.tags.slice(0, 3).map((tag) => (
 						<span
 							key={tag}
 							className="text-[9px] font-mono px-2 py-0.5 rounded-md bg-zinc-800/60 text-zinc-400 border border-zinc-800"
@@ -32,7 +32,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
 				<Link
 					href={`/projects/${project.slug}`}
-					className="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+					className="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors whitespace-nowrap shrink-0 pb-0.5"
 				>
 					Details &rarr;
 				</Link>

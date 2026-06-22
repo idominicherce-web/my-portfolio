@@ -1,6 +1,6 @@
 // app/projects/page.tsx
 import { projectsData } from "@/app/data/projects";
-import ProjectCard from "@/components/ProjectCard";
+import ProjectCard from "@/components/ProjectCard"; // 🎯 Ensure this path matches your folder hierarchy!
 
 export default function ProjectsPage() {
 	return (

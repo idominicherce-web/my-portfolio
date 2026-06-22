@@ -1,5 +1,4 @@
 // app/projects/[slug]/page.tsx
-
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projectsData } from "@/app/data/projects";
@@ -11,6 +10,11 @@ interface ProjectPageProps {
 
 export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 	const resolvedParams = await params;
+
+	if (!resolvedParams?.slug) {
+		notFound();
+	}
+
 	const currentSlug = resolvedParams.slug;
 	const project = projectsData.find((p) => p.slug === currentSlug);
 
@@ -20,7 +24,6 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
 	return (
 		<ProjectHeroLayout title={project.title} tags={project.tags}>
-			{/* High Fidelity Project Mockup Image Asset */}
 			{project.image && (
 				<div className="w-full overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl group cursor-pointer">
 					<Image
@@ -34,8 +37,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 				</div>
 			)}
 
-			{/* Detailed Portfolio Project Description Block */}
-			<p className="text-zinc-300 text-sm leading-relaxed mt-6 text-justify">
+			<p className="text-zinc-300 text-sm md:text-base leading-relaxed mt-4 text-justify wrap-break-word scroll-dynamic-text">
 				{project.description}
 			</p>
 		</ProjectHeroLayout>
