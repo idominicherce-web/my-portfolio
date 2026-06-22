@@ -1,6 +1,10 @@
 import Link from "next/link";
 
 export default function HomePage() {
+	// TEST CRASH: This will immediately throw an error.
+	// Remove the comment to simulate a production server crash and trigger the error boundary.
+	// throw new Error("Simulated production server crash!");
+
 	return (
 		<main className="flex min-h-[calc(100vh-65px)] flex-col items-center justify-center p-8 bg-zinc-950 text-zinc-50 font-sans">
 			{/* Hero Section */}
