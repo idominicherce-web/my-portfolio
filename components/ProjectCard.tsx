@@ -1,47 +1,42 @@
+// components/ProjectCard.tsx
 import Link from "next/link";
+import type { Project } from "@/app/data/projects";
 
-export interface ProjectProps {
-	title: string;
-	description: string;
-	tech: string[];
-	slug: string; // PATCH: added slug key to the ProjectProps interface to ensure type safety and proper routing in the ProjectCard component
+interface ProjectCardProps {
+	project: Project;
 }
 
-export default function ProjectCard({
-	title,
-	description,
-	tech,
-	slug,
-}: ProjectProps) {
+export default function ProjectCard({ project }: ProjectCardProps) {
 	return (
-		<Link
-			href={`/projects/${slug}`} // Automatically routes to app/projects/[slug]/page.tsx
-			className="p-5 rounded-xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-md flex flex-col gap-3 hover:border-blue-500/50 hover:bg-zinc-900/60 transition-all group duration-200"
-		>
-			{/* Project Title (changes color on hover anywhere on the card) */}
-			<h2 className="text-xl font-semibold text-zinc-100 group-hover:text-blue-400 transition-colors flex justify-between items-center">
-				{title}
-				<span className="text-xs text-zinc-600 group-hover:text-blue-400 group-hover:translate-x-1 transition-all duration-200">
-					→
-				</span>
-			</h2>
-
-			{/* Project Description */}
-			<p className="text-zinc-400 text-sm leading-relaxed flex-1">
-				{description}
-			</p>
-
-			{/* Tech Badge Grid Wrapper */}
-			<div className="flex flex-wrap gap-2 mt-2">
-				{tech.map((t) => (
-					<span
-						key={t}
-						className="text-xs font-mono px-2.5 py-1 rounded-md bg-zinc-800 text-zinc-300 border border-zinc-700"
-					>
-						{t}
-					</span>
-				))}
+		<div className="p-5 rounded-2xl border border-zinc-800 bg-zinc-900/20 hover:border-zinc-700/60 transition-colors flex flex-col justify-between gap-4">
+			<div className="space-y-2">
+				<h2 className="text-lg font-bold text-zinc-100 tracking-tight">
+					{project.title}
+				</h2>
+				<p className="text-zinc-400 text-xs leading-relaxed line-clamp-2">
+					{project.summary}
+				</p>
 			</div>
-		</Link>
+
+			<div className="flex items-center justify-between gap-2 mt-2">
+				<div className="flex gap-1.5 flex-wrap">
+					{project.tags.slice(0, 2).map((tag) => (
+						<span
+							key={tag}
+							className="text-[9px] font-mono px-2 py-0.5 rounded-md bg-zinc-800/60 text-zinc-400 border border-zinc-800"
+						>
+							{tag}
+						</span>
+					))}
+				</div>
+
+				<Link
+					href={`/projects/${project.slug}`}
+					className="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors"
+				>
+					Details &rarr;
+				</Link>
+			</div>
+		</div>
 	);
 }
