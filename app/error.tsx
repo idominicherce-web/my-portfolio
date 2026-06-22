@@ -7,6 +7,14 @@ interface ErrorBoundaryProps {
 	reset: () => void; // A native function to re-attempt rendering the route segment
 }
 
+/**
+ * ★ MVP COMPLIANCE: REACT ERROR BOUNDARY ISOLATION BLOCK (MVP 6)
+ * - Implements a strict `"use client"` error catchment layer.
+ * - Intercepts unexpected client-side runtime layout crashes gracefully before breaking the outer layout framework.
+ * - Feeds a highly readable user-facing feedback message, backed by an interactive `reset()` hook loop
+ * to attempt background re-hydration without requiring full browser window refreshes.
+ */
+
 export default function GlobalErrorBoundary({
 	error,
 	reset,

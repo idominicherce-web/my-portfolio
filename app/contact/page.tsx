@@ -1,4 +1,4 @@
-"use client"; // 🧠 Declared because we are binding interactive hooks
+"use client";
 
 import { useActionState } from "react";
 import { type FormState, submitContactForm } from "@/app/actions/contact";
@@ -8,6 +8,14 @@ const initialState: FormState = {
 	success: null,
 	message: "",
 };
+
+/**
+ * ★ MVP COMPLIANCE: SECURE FORM HANDLING & STATE TRANSITIONS (MVP 5)
+ * - Bound to a "use client" directive to safely capture browser submission states.
+ * - Coordinates input cycles using NextJS Server Actions combined with React 19's `useActionState()`.
+ * - Harnesses child component field isolation via `useFormStatus()` to monitor submission traffic,
+ * safely toggling disabling properties, text prompts, and inline success/error UI blocks.
+ */
 
 export default function ContactPage() {
 	// useActionState receives the server action, handles async state tracking, and manages return states

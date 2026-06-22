@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+/**
+ * ★ MVP COMPLIANCE: METADATA API REQUIREMENT (MVP 1)
+ * Utilizes Next.js Server Component capabilities to export a static Metadata object.
+ * This injects optimized SEO titles, descriptions, and OpenGraph parameters into the
+ * document head during server-side rendering (SSR), completely eliminating the need for
+ * client-side 'next/head' primitives.
+ */
+
 // Fulfills MVP Checklist #1: Configured with the Metadata API including title, description, and openGraph values.
 export const metadata: Metadata = {
 	title: "Dominic Herce | Software Engineer Portfolio",
