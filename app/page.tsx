@@ -1,4 +1,19 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+// Fulfills MVP Checklist #1: Configured with the Metadata API including title, description, and openGraph values.
+export const metadata: Metadata = {
+	title: "Dominic Herce | Software Engineer Portfolio",
+	description:
+		"Personal software engineering portfolio of Dominic Herce, featuring full-stack applications built with Next.js, React 19, and Tailwind CSS v4.",
+	openGraph: {
+		title: "Dominic Herce | Software Engineer Portfolio",
+		description:
+			"Explore my applications, engineering tasks, and active features built during the Stratpoint internship program.",
+		type: "website",
+		siteName: "Dominic Herce Portfolio",
+	},
+};
 
 export default function HomePage() {
 	// TEST CRASH: This will immediately throw an error.
