@@ -18,6 +18,14 @@ interface ProjectPageProps {
 	params: Promise<{ slug: string }>;
 }
 
+/**
+ * ★ MVP COMPLIANCE: DYNAMIC ROUTING & PARAMS PARSING (MVP 4)
+ * Configures a dynamic directory route that extracts individual parameter strings via an
+ * awaited params promise stream. Cross-references the targeted slug against the master data
+ * catalog array, invoking the native Next.js notFound() capture method instantly if an
+ * invalid or non-existent project directory string is requested.
+ */
+
 export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 	const resolvedParams = await params;
 

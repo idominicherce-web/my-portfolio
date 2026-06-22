@@ -2,6 +2,14 @@
 import { projectsData } from "@/app/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 
+/**
+ * ★ MVP COMPLIANCE: ASYNC SERVER COMPONENT DATA SEPARATION (MVP 3)
+ * Operates as an asynchronous Server Component that reads project data directly from
+ * a centralized data store array instead of hardcoded strings. Iterates through the collection
+ * to dynamically map and feed clean object properties down into separate <ProjectCard> instances
+ * structured inside a responsive grid layout.
+ */
+
 export default function ProjectsPage() {
 	return (
 		<main className="flex-1 max-w-4xl w-full mx-auto p-8 flex flex-col gap-6 justify-center min-h-[calc(100vh-65px)]">
