@@ -38,7 +38,7 @@ export default function AboutPage() {
 				</h2>
 				<div className="flex flex-wrap gap-2">
 					{[
-						"Next.js (App Router)",
+						"Next.js",
 						"React 19",
 						"Tailwind v4",
 						"TypeScript",
