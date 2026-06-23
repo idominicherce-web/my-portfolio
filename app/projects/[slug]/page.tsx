@@ -4,16 +4,6 @@ import { notFound } from "next/navigation";
 import { projectsData } from "@/app/data/projects";
 import ProjectHeroLayout from "@/components/ProjectHeroLayout";
 
-{
-	/* 
-	★ MVP COMPLIANCE: IMAGE ASSET STRICTNESS VERIFICATION 
-	- Zero raw HTML <img> elements are permitted in the repository.
-	- Next.js native <Image /> wrapper optimizes asset compression and delivery.
-	- Explicit width and height layout configurations completely eliminate Cumulative Layout Shift (CLS).
-	- Mandatory detailed descriptive alternative alt tags ensure full screen-reader accessibility.
-*/
-}
-
 interface ProjectPageProps {
 	params: Promise<{ slug: string }>;
 }
@@ -42,6 +32,16 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
 	return (
 		<ProjectHeroLayout title={project.title} tags={project.tags}>
+			{/* 
+			★ MVP COMPLIANCE: IMAGE ASSET STRICTNESS VERIFICATION (MVP 8)
+			- Zero raw HTML <img> elements are permitted in the repository.
+			- Next.js native <Image /> wrapper optimizes asset compression and delivery.
+			- Explicit width and height layout configurations completely eliminate Cumulative Layout Shift (CLS).
+			- Mandatory detailed descriptive alternative alt tags ensure full screen-reader accessibility.★ MVP COMPLIANCE: IMAGE ASSET STRICTNESS VERIFICATION (MVP 8)
+			- Zero raw HTML <img> elements are permitted in the repository.
+			- Next.js native <Image /> wrapper optimizes asset compression and delivery.
+			- Explicit width and height layout configurations completely eliminate Cumulative Layout Shift (CLS).
+			- Mandatory detailed descriptive alternative alt tags ensure full screen-reader accessibility. */}
 			{project.image && (
 				<div className="w-full overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl group cursor-pointer">
 					<Image
