@@ -43,4 +43,24 @@ export const projectsData: Project[] = [
 		],
 		image: "/images/parkr-ad.png",
 	},
+	{
+		slug: "hospital-management-system",
+		title: "Hospital Management System",
+		summary:
+			"A comprehensive medical record system focusing on functional software engineering and secure backend logic.",
+		description:
+			"Built a robust  record management web application from the ground up. Focused on translating stakeholder requirements into actionable object-oriented designs, modeling domain use cases, and implementing complex backend business logic to ensure reliable and concurrent transaction stability.",
+		tags: ["Java", "OOP", "Software Engineering", "Database Design"],
+		image: "/images/hospital-management.png",
+	},
+	{
+		slug: "student-gpa-predictor",
+		title: "Student GPA Predictor",
+		summary:
+			"A machine learning pipeline utilizing classical regression models and decision trees to predict academic performance.",
+		description:
+			"Built an end-to-end predictive analytics pipeline to estimate college student GPAs based on demographic and academic indicators. Conducted extensive Exploratory Data Analysis (EDA) and data preprocessing—including handling missing data, outlier detection, and feature scaling. Evaluated and optimized multiple classical machine learning architectures, ranging from Linear Regression to ensemble methods like Decision Trees and Random Forests, to maximize model accuracy.",
+		tags: ["Python", "Scikit-Learn", "NumPy", "Machine Learning", "EDA"],
+		image: "/images/gpa-predictor.jpg",
+	},
 ];

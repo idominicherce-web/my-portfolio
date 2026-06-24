@@ -23,9 +23,11 @@ export default function ProjectsPage() {
 				</p>
 			</div>
 
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-				{projectsData.map((projectItem) => (
-					<ProjectCard key={projectItem.slug} project={projectItem} />
+			{/* THE DYNAMIC CANVAS GRID MATRIX: 
+               	Automatically structures columns based on screen breakpoint sizes */}
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+				{projectsData.map((project) => (
+					<ProjectCard key={project.slug} project={project} />
 				))}
 			</div>
 		</main>
