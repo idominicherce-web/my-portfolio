@@ -44,7 +44,7 @@ export default function ProjectHeroLayout({
 				className="w-full flex flex-col items-center text-center pt-[35vh] pb-[15vh] px-6 md:px-8 will-change-transform transition-transform duration-75 ease-out"
 			>
 				<div className="max-w-2xl w-full space-y-4 animate-fade-in">
-					<h1 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-100 drop-shadow-md">
+					<h1 className="text-4xl md:text-5xl font-bold tracking-tight ttext-foreground drop-shadow-md">
 						{title}
 					</h1>
 
@@ -52,7 +52,7 @@ export default function ProjectHeroLayout({
 						{tags.map((tag) => (
 							<span
 								key={tag}
-								className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-400 shadow-sm"
+								className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-background border border-zinc-800 text-muted-foreground shadow-sm"
 							>
 								{tag}
 							</span>

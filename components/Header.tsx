@@ -16,23 +16,23 @@ export default function Header() {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<header className="w-full border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+		<header className="w-full border-b border-zinc-800 bg-background/80 backdrop-blur-md sticky top-0 z-50">
 			<div className="max-w-5xl mx-auto flex items-center justify-between p-4">
 				<Link
 					href="/"
-					className="font-bold text-lg tracking-tight text-zinc-50"
+					className="font-bold text-lg tracking-tight text-foreground"
 				>
 					DH.
 				</Link>
 
 				{/* Desktop Navigation Router Links & Theme Controls */}
 				<div className="hidden md:flex items-center gap-6">
-					<nav className="flex gap-6 text-sm font-medium text-zinc-400">
+					<nav className="flex gap-6 text-sm font-medium text-muted-foreground">
 						{navLinks.map((link) => (
 							<Link
 								key={link.href}
 								href={link.href}
-								className="hover:text-zinc-50 transition-colors"
+								className="hover:text-foreground transition-colors"
 							>
 								{link.name}
 							</Link>
@@ -53,7 +53,7 @@ export default function Header() {
 					<button
 						type="button"
 						onClick={() => setIsOpen(!isOpen)}
-						className="text-zinc-400 hover:text-zinc-50 focus:outline-hidden cursor-pointer"
+						className="text-muted-foreground hover:text-foreground focus:outline-hidden cursor-pointer"
 						aria-label="Toggle Menu"
 					>
 						<svg
@@ -83,7 +83,7 @@ export default function Header() {
 
 			{/* Dropdown Mobile Menu controlled seamlessly by the hook */}
 			{isOpen && (
-				<nav className="nav-menu md:hidden border-t border-zinc-900 bg-zinc-950 p-4 flex flex-col gap-4 text-sm font-medium text-zinc-400">
+				<nav className="nav-menu md:hidden border-t border-zinc-900 bg-background p-4 flex flex-col gap-4 text-sm font-medium text-muted-foreground">
 					<Link href="/" onClick={() => setIsOpen(false)}>
 						Home
 					</Link>
@@ -93,14 +93,14 @@ export default function Header() {
 					<Link
 						href="/projects"
 						onClick={() => setIsOpen(false)}
-						className="hover:text-zinc-50"
+						className="hover:text-foreground"
 					>
 						Projects
 					</Link>
 					<Link
 						href="/contact"
 						onClick={() => setIsOpen(false)}
-						className="hover:text-zinc-50"
+						className="hover:text-foreground"
 					>
 						Contact
 					</Link>

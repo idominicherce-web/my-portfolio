@@ -11,7 +11,7 @@ export function ThemeToggle() {
 		<Button
 			variant="outline"
 			size="icon"
-			className="relative cursor-pointer border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-50 size-9"
+			className="relative cursor-pointer border-zinc-800 bg-background/50 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-foreground hover:text-foreground size-9"
 			onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
 		>
 			{/* Smoothly rotates and cross-fades the layout context */}

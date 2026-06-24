@@ -1,7 +1,8 @@
+/* globals.css */
 @import "tailwindcss";
 
 /* Explicit custom variant mapping for system compatibility updates */
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 /**
  * ★ MVP COMPLIANCE: TAILWIND CSS V4 DESIGN TOKEN CUSTOMIZATION (MVP 9)
@@ -135,5 +136,17 @@
 	}
 	body {
 		@apply bg-background text-foreground font-sans antialiased;
+	}
+	p,
+	li,
+	span,
+	label,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-foreground/90 transition-colors duration-200;
 	}
 }

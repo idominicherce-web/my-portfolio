@@ -17,7 +17,7 @@ export default function ProjectsPage() {
 				<h1 className="text-3xl font-bold tracking-tight mb-2 bg-linear-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
 					My Projects
 				</h1>
-				<p className="text-zinc-400 text-sm">
+				<p className="text-muted-foreground text-sm">
 					A showcase of my software applications, thesis engineering systems,
 					and academic work.
 				</p>

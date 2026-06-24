@@ -19,7 +19,7 @@ export default function ProjectDetailLoading() {
 
 			{/* Hero Device/Mockup Display Card Simulator */}
 			{/* Matches the 1200x675 (16:9 aspect ratio) image frame border precisely */}
-			<div className="w-full aspect-video rounded-2xl border border-zinc-800 bg-zinc-900/40" />
+			<div className="w-full aspect-video rounded-2xl border border-zinc-800 bg-background/40" />
 
 			{/* Descriptive Narrative Text Stack Simulator */}
 			<div className="space-y-3 pt-2">
