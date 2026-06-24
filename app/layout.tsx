@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
@@ -28,7 +29,6 @@ export const metadata: Metadata = {
  * here so that sub-pages (like /about, /projects, and /contact) automatically inherit them
  * dynamically without re-rendering underlying shell structures.
  */
-
 export default function RootLayout({
 	children,
 }: Readonly<{
@@ -40,20 +40,24 @@ export default function RootLayout({
 			className={cn(
 				"h-full",
 				"antialiased",
-				"dark", // Forces global dark mode state on all pages natively
 				geistSans.variable,
 				geistMono.variable,
 				"font-sans",
 				inter.variable,
 			)}
-			suppressHydrationWarning // Safe hydration guard for themes
+			suppressHydrationWarning
 		>
-			<body className="bg-zinc-950 text-zinc-50 min-h-full flex flex-col font-sans">
-				{/* The Header is now global and will render on every page route */}
-				<Header />
-
-				{/* The main wrapper ensures pages grow dynamically but always fill the screen */}
-				<div className="flex-1 flex flex-col">{children}</div>
+			{/* Changed from bg-zinc-950 text-zinc-50 to bg-background text-foreground */}
+			<body className="bg-background text-foreground min-h-full flex flex-col font-sans transition-colors duration-200">
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="dark"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<Header />
+					<div className="flex-1 flex flex-col">{children}</div>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

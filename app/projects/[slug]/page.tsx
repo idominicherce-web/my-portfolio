@@ -32,18 +32,14 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
 	return (
 		<ProjectHeroLayout title={project.title} tags={project.tags}>
-			{/* 
-			★ MVP COMPLIANCE: IMAGE ASSET STRICTNESS VERIFICATION (MVP 8)
-			- Zero raw HTML <img> elements are permitted in the repository.
-			- Next.js native <Image /> wrapper optimizes asset compression and delivery.
-			- Explicit width and height layout configurations completely eliminate Cumulative Layout Shift (CLS).
-			- Mandatory detailed descriptive alternative alt tags ensure full screen-reader accessibility.★ MVP COMPLIANCE: IMAGE ASSET STRICTNESS VERIFICATION (MVP 8)
-			- Zero raw HTML <img> elements are permitted in the repository.
-			- Next.js native <Image /> wrapper optimizes asset compression and delivery.
-			- Explicit width and height layout configurations completely eliminate Cumulative Layout Shift (CLS).
-			- Mandatory detailed descriptive alternative alt tags ensure full screen-reader accessibility. */}
+			{/* ★ MVP COMPLIANCE: IMAGE ASSET STRICTNESS VERIFICATION (MVP 8)
+            - Zero raw HTML <img> elements are permitted in the repository.
+            - Next.js native <Image /> wrapper optimizes asset compression and delivery.
+            - Explicit width and height layout configurations completely eliminate Cumulative Layout Shift (CLS).
+            - Mandatory detailed descriptive alternative alt tags ensure full screen-reader accessibility. */}
 			{project.image && (
-				<div className="w-full overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950 shadow-2xl group cursor-pointer">
+				/* UPDATED: border-zinc-800 -> border-border | bg-zinc-950 -> bg-card */
+				<div className="w-full overflow-hidden rounded-2xl border border-border bg-card shadow-2xl group cursor-pointer transition-colors duration-200">
 					<Image
 						src={project.image}
 						alt={`Mockup representation of ${project.title}`}
@@ -55,7 +51,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 				</div>
 			)}
 
-			<p className="text-zinc-300 text-sm md:text-base leading-relaxed mt-4 text-justify wrap-break-word scroll-dynamic-text">
+			{/* UPDATED: text-zinc-300 -> text-muted-foreground for dynamic light/dark contrast */}
+			<p className="text-muted-foreground text-sm md:text-base leading-relaxed mt-4 text-justify wrap-break-word scroll-dynamic-text transition-colors duration-200">
 				{project.description}
 			</p>
 		</ProjectHeroLayout>
