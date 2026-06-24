@@ -8,7 +8,8 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
 	return (
-		<div className="p-5 rounded-2xl border border-zinc-800 bg-background/20 hover:border-zinc-700/60 transition-colors flex flex-col justify-between gap-4">
+		/* UPDATED: Changed fixed zinc borders to border-border, bg-background/20 to bg-card/40, and enhanced hovers */
+		<div className="p-5 rounded-2xl border border-border bg-card/40 hover:border-border/80 hover:shadow-sm transition-all flex flex-col justify-between gap-4 duration-200">
 			<div className="space-y-2">
 				<h2 className="text-lg font-bold text-foreground tracking-tight">
 					{project.title}
@@ -23,7 +24,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 					{project.tags.slice(0, 3).map((tag) => (
 						<span
 							key={tag}
-							className="text-[9px] font-mono px-2 py-0.5 rounded-md bg-muted/70 text-foreground border border-border dark:bg-zinc-800/60 dark:border-zinc-800"
+							/* UPDATED: Removed hardcoded dark overrides; replaced with a single, highly responsive semantic token class combination */
+							className="text-[9px] font-mono px-2 py-0.5 rounded-md bg-muted text-muted-foreground border border-border transition-colors duration-200"
 						>
 							{tag}
 						</span>
@@ -32,7 +34,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
 				<Link
 					href={`/projects/${project.slug}`}
-					className="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors whitespace-nowrap shrink-0 pb-0.5"
+					/* UPDATED: text-blue-400 -> text-stratpoint-blue (or text-blue-600 dark:text-blue-400 for fallback) */
+					className="text-xs font-semibold text-stratpoint-blue hover:opacity-80 transition-opacity whitespace-nowrap shrink-0 pb-0.5 cursor-pointer"
 				>
 					Details &rarr;
 				</Link>
