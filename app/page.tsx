@@ -29,7 +29,7 @@ export default function HomePage() {
 	// throw new Error("Simulated production server crash!");
 
 	return (
-		<main className="flex min-h-[calc(100vh-65px)] flex-col items-center justify-center p-8 bg-zinc-950 text-zinc-50 font-sans">
+		<main className="flex min-h-[calc(100vh-65px)] flex-col items-center justify-center p-8 bg-background text-foreground font-sans transition-colors duration-200">
 			{/* Hero Section */}
 			<section className="text-center max-w-2xl flex flex-col gap-4 my-auto">
 				<h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-linear-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">

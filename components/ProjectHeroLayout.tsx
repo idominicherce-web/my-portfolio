@@ -37,7 +37,7 @@ export default function ProjectHeroLayout({
 	const titleTranslateY = -scrollProgress * 50;
 
 	return (
-		<div className="w-full min-h-screen flex flex-col items-center bg-zinc-950 text-zinc-100 selection:bg-blue-500/30 overflow-x-hidden">
+		<div className="w-full min-h-screen flex flex-col items-center bg-background text-foreground selection:bg-blue-500/30 overflow-x-hidden transition-colors duration-200">
 			{/* Parallax Center Title Header Block */}
 			<div
 				style={{ transform: `translateY(${titleTranslateY}px)` }}

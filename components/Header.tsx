@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function Header() {
 	const navLinks = [
@@ -24,50 +25,65 @@ export default function Header() {
 					DH.
 				</Link>
 
-				{/* Desktop Navigation Router Links */}
-				<nav className="hidden md:flex gap-6 text-sm font-medium text-zinc-400">
-					{navLinks.map((link) => (
-						<Link
-							key={link.href}
-							href={link.href}
-							className="hover:text-zinc-50 transition-colors"
-						>
-							{link.name}
-						</Link>
-					))}
-				</nav>
+				{/* Desktop Navigation Router Links & Theme Controls */}
+				<div className="hidden md:flex items-center gap-6">
+					<nav className="flex gap-6 text-sm font-medium text-zinc-400">
+						{navLinks.map((link) => (
+							<Link
+								key={link.href}
+								href={link.href}
+								className="hover:text-zinc-50 transition-colors"
+							>
+								{link.name}
+							</Link>
+						))}
+					</nav>
+
+					{/* Desktop Mode Toggle Switch */}
+					<div className="border-l border-zinc-800 pl-4">
+						<ThemeToggle />
+					</div>
+				</div>
 
 				{/* Mobile Hamburger Button using our Hook state */}
-				<button
-					type="button"
-					onClick={() => setIsOpen(!isOpen)}
-					className="md:hidden text-zinc-400 hover:text-zinc-50 focus:outline-hidden"
-					aria-label="Toggle Menu"
-				>
-					<svg className="h-6 w-6 fill-none stroke-current" viewBox="0 0 24 24">
-						<title>Toggle Mobile Menu</title>
-						{isOpen ? (
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								d="M6 18L18 6M6 6l12 12"
-							/>
-						) : (
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								d="M4 6h16M4 12h16M4 18h16"
-							/>
-						)}
-					</svg>
-				</button>
+				<div className="flex items-center gap-4 md:hidden">
+					{/* Mobile Mode Toggle Switch (Accessible directly beside hamburger) */}
+					<ThemeToggle />
+
+					<button
+						type="button"
+						onClick={() => setIsOpen(!isOpen)}
+						className="text-zinc-400 hover:text-zinc-50 focus:outline-hidden cursor-pointer"
+						aria-label="Toggle Menu"
+					>
+						<svg
+							className="h-6 w-6 fill-none stroke-current"
+							viewBox="0 0 24 24"
+						>
+							<title>Toggle Mobile Menu</title>
+							{isOpen ? (
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth="2"
+									d="M6 18L18 6M6 6l12 12"
+								/>
+							) : (
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth="2"
+									d="M4 6h16M4 12h16M4 18h16"
+								/>
+							)}
+						</svg>
+					</button>
+				</div>
 			</div>
 
 			{/* Dropdown Mobile Menu controlled seamlessly by the hook */}
 			{isOpen && (
-				<nav className="md:hidden border-t border-zinc-900 bg-zinc-950 p-4 flex flex-col gap-4 text-sm font-medium text-zinc-400">
+				<nav className="nav-menu md:hidden border-t border-zinc-900 bg-zinc-950 p-4 flex flex-col gap-4 text-sm font-medium text-zinc-400">
 					<Link href="/" onClick={() => setIsOpen(false)}>
 						Home
 					</Link>
