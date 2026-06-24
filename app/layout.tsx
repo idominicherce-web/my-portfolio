@@ -47,7 +47,7 @@ export default function RootLayout({
 			)}
 			suppressHydrationWarning
 		>
-			{/* Changed from bg-zinc-950 text-zinc-50 to bg-background text-foreground */}
+			{/* Changed from bg-background text-foreground to bg-background text-foreground */}
 			<body className="bg-background text-foreground min-h-full flex flex-col font-sans transition-colors duration-200">
 				<ThemeProvider
 					attribute="class"

@@ -38,7 +38,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
             - Explicit width and height layout configurations completely eliminate Cumulative Layout Shift (CLS).
             - Mandatory detailed descriptive alternative alt tags ensure full screen-reader accessibility. */}
 			{project.image && (
-				/* UPDATED: border-zinc-800 -> border-border | bg-zinc-950 -> bg-card */
+				/* UPDATED: border-zinc-800 -> border-border | bg-background -> bg-card */
 				<div className="w-full overflow-hidden rounded-2xl border border-border bg-card shadow-2xl group cursor-pointer transition-colors duration-200">
 					<Image
 						src={project.image}
@@ -51,8 +51,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 				</div>
 			)}
 
-			{/* UPDATED: text-zinc-300 -> text-muted-foreground for dynamic light/dark contrast */}
-			<p className="text-muted-foreground text-sm md:text-base leading-relaxed mt-4 text-justify wrap-break-word scroll-dynamic-text transition-colors duration-200">
+			{/* UPDATED: use stronger foreground text for better contrast in light mode */}
+			<p className="text-foreground text-sm md:text-base leading-relaxed mt-4 text-justify wrap-break-word scroll-dynamic-text transition-colors duration-200">
 				{project.description}
 			</p>
 		</ProjectHeroLayout>

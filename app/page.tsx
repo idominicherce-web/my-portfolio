@@ -35,10 +35,10 @@ export default function HomePage() {
 				<h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-linear-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
 					Dominic Herce
 				</h1>
-				<p className="text-zinc-400 text-lg md:text-xl font-medium">
+				<p className="text-muted-foreground text-lg md:text-xl font-medium">
 					Software Engineer Intern • Stratpoint
 				</p>
-				<p className="text-zinc-500 text-sm md:text-base max-w-md mx-auto">
+				<p className="text-foreground0 text-sm md:text-base max-w-md mx-auto">
 					Building modern web applications using Next.js, React 19, and
 					full-stack cloud ecosystems.
 				</p>
@@ -47,13 +47,13 @@ export default function HomePage() {
 				<div className="flex gap-4 justify-center mt-4">
 					<Link
 						href="/projects"
-						className="px-5 py-2.5 rounded-lg bg-stratpoint-blue font-semibold hover:opacity-90 transition-all shadow-lg shadow-blue-500/20"
+						className="px-5 py-2.5 rounded-lg bg-stratpoint-blue text-white font-semibold hover:opacity-90 transition-all shadow-lg shadow-blue-500/20"
 					>
 						View Projects
 					</Link>
 					<Link
 						href="/contact"
-						className="px-5 py-2.5 rounded-lg bg-zinc-800 font-semibold text-zinc-300 hover:bg-zinc-700 hover:text-zinc-50 transition-all border border-zinc-700"
+						className="px-5 py-2.5 rounded-lg bg-secondary text-secondary-foreground font-semibold hover:bg-secondary/80 transition-all border border-border shadow-sm cursor-pointer"
 					>
 						Get in Touch
 					</Link>

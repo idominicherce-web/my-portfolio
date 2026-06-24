@@ -8,12 +8,12 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
 	return (
-		<div className="p-5 rounded-2xl border border-zinc-800 bg-zinc-900/20 hover:border-zinc-700/60 transition-colors flex flex-col justify-between gap-4">
+		<div className="p-5 rounded-2xl border border-zinc-800 bg-background/20 hover:border-zinc-700/60 transition-colors flex flex-col justify-between gap-4">
 			<div className="space-y-2">
-				<h2 className="text-lg font-bold text-zinc-100 tracking-tight">
+				<h2 className="text-lg font-bold text-foreground tracking-tight">
 					{project.title}
 				</h2>
-				<p className="text-zinc-400 text-xs leading-relaxed line-clamp-2">
+				<p className="text-muted-foreground text-xs leading-relaxed line-clamp-2">
 					{project.summary}
 				</p>
 			</div>
@@ -23,7 +23,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 					{project.tags.slice(0, 3).map((tag) => (
 						<span
 							key={tag}
-							className="text-[9px] font-mono px-2 py-0.5 rounded-md bg-zinc-800/60 text-zinc-400 border border-zinc-800"
+							className="text-[9px] font-mono px-2 py-0.5 rounded-md bg-muted/70 text-foreground border border-border dark:bg-zinc-800/60 dark:border-zinc-800"
 						>
 							{tag}
 						</span>

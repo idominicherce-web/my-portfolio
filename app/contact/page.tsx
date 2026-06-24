@@ -27,7 +27,7 @@ export default function ContactPage() {
 				<h1 className="text-3xl font-bold tracking-tight mb-2 bg-linear-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
 					Get in Touch
 				</h1>
-				<p className="text-zinc-400 text-sm">
+				<p className="text-muted-foreground text-sm">
 					Have a question or want to work together? Drop a message directly
 					below.
 				</p>
@@ -49,7 +49,7 @@ export default function ContactPage() {
 				<div className="flex flex-col gap-1.5">
 					<label
 						htmlFor="email"
-						className="text-xs font-medium text-zinc-400 uppercase tracking-wider"
+						className="text-xs font-medium text-muted-foreground uppercase tracking-wider"
 					>
 						Email Address
 					</label>
@@ -59,14 +59,14 @@ export default function ContactPage() {
 						name="email"
 						required
 						placeholder="you@example.com"
-						className="w-full p-3 rounded-xl border border-zinc-800 bg-zinc-900/30 text-zinc-100 placeholder-zinc-600 text-sm focus:border-blue-500 focus:outline-none transition-colors"
+						className="w-full p-3 rounded-xl border border-zinc-800 bg-background/30 text-foreground placeholder:text-muted-foreground text-sm focus:border-blue-500 focus:outline-none transition-colors"
 					/>
 				</div>
 
 				<div className="flex flex-col gap-1.5">
 					<label
 						htmlFor="message"
-						className="text-xs font-medium text-zinc-400 uppercase tracking-wider"
+						className="text-xs font-medium text-muted-foreground uppercase tracking-wider"
 					>
 						Your Message
 					</label>
@@ -76,7 +76,7 @@ export default function ContactPage() {
 						required
 						rows={5}
 						placeholder="Write your message here..."
-						className="w-full p-3 rounded-xl border border-zinc-800 bg-zinc-900/30 text-zinc-100 placeholder-zinc-600 text-sm focus:border-blue-500 focus:outline-none transition-colors resize-none"
+						className="w-full p-3 rounded-xl border border-zinc-800 bg-background/30 text-foreground placeholder:text-muted-foreground text-sm focus:border-blue-500 focus:outline-none transition-colors resize-none"
 					/>
 				</div>
 

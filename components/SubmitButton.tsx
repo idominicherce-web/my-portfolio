@@ -10,7 +10,7 @@ export default function SubmitButton() {
 		<button
 			type="submit"
 			disabled={pending}
-			className="w-full py-3 px-4 rounded-xl font-semibold text-sm text-zinc-50 bg-blue-600 hover:bg-blue-500 disabled:bg-zinc-800 disabled:text-zinc-500 disabled:border-zinc-700 disabled:cursor-not-allowed transition-colors border border-blue-500/20 cursor-pointer flex items-center justify-center gap-2"
+			className="w-full py-3 px-4 rounded-xl font-semibold text-sm text-white bg-blue-600 hover:bg-blue-500 disabled:bg-zinc-800 disabled:text-foreground0 disabled:border-zinc-700 disabled:cursor-not-allowed transition-colors border border-blue-500/20 cursor-pointer flex items-center justify-center gap-2"
 		>
 			{pending ? (
 				<>
