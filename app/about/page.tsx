@@ -1,8 +1,8 @@
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+// const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export default async function AboutPage() {
 	// Simulate a temporary server transmission delay to watch the skeleton stream
-	await delay(750);
+	// await delay(750);
 
 	return (
 		<main className="flex-1 max-w-3xl w-full mx-auto p-8 flex flex-col gap-6 justify-center min-h-[calc(100vh-65px)]">
