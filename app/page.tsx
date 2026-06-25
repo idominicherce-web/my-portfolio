@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+	// ★ MVP COMPLIANCE: error.tsx REQUIREMENT (MVP 6)
 	// TEST CRASH: This will immediately throw an error.
 	// Remove the comment to simulate a production server crash and trigger the error boundary.
 	// throw new Error("Simulated production server crash!");
