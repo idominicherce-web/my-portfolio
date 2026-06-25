@@ -123,16 +123,16 @@ export default function ParallaxHero() {
 				<div className="flex justify-center gap-4 mt-8">
 					<Link
 						href="/projects"
-						className="px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-500"
+						className="px-6 py-3 rounded-lg bg-stratpoint-blue text-white font-semibold hover:opacity-90 transition-all shadow-md shadow-blue-500/10 cursor-pointer text-sm"
 					>
 						View Projects
 					</Link>
 
 					<Link
 						href="/contact"
-						className="px-6 py-3 rounded-lg border border-border"
+						className="px-6 py-3 rounded-lg bg-secondary text-secondary-foreground font-semibold hover:bg-secondary/80 border border-border transition-all shadow-sm cursor-pointer text-sm"
 					>
-						Contact
+						Contact Me
 					</Link>
 				</div>
 			</motion.div>

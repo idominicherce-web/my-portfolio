@@ -1,35 +1,55 @@
-"use server"; // Enforces that this entire file runs exclusively on the secure server environment
+// app/actions/contact.ts
+"use server";
 
+import { Resend } from "resend";
+
+// Initialize Resend with your hidden environment variable token
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Define a type contract interface for the form lifecycle states
 export interface FormState {
 	success: boolean | null;
 	message: string;
 }
 
-// This action will process the form data directly on the server
+/**
+ * Handles server-side processing and validation for email transmissions via Resend.
+ */
 export async function submitContactForm(
 	_prevState: FormState,
 	formData: FormData,
 ): Promise<FormState> {
-	// Simulate an asynchronous server network delay (e.g., waiting for an email API provider)
-	await new Promise((resolve) => setTimeout(resolve, 1500));
-
 	const email = formData.get("email") as string;
 	const message = formData.get("message") as string;
 
-	// Simple server-side validation check
-	if (!email || !message || message.trim().length < 5) {
+	// Security validation fallback guardrail
+	if (!email || !message) {
 		return {
 			success: false,
-			message: "Validation failed: Message must be at least 5 characters long.",
+			message: "All fields are required before sending.",
 		};
 	}
 
-	// For binding Prisma, Resend, or a database stream
-	console.log(`Server received message from ${email}: ${message}`);
+	try {
+		// Dispatch the email payload safely through the Resend API infrastructure
+		await resend.emails.send({
+			from: "Portfolio Contact <onboarding@resend.dev>", // Free accounts use this sandbox domain
+			to: "i_dominicmarcus.herce@stratpoint.com", // Your personal recipient inbox
+			subject: `New Portfolio Message from ${email}`,
+			text: `Sender Email: ${email}\n\nMessage Content:\n${message}`,
+		});
 
-	return {
-		success: true,
-		message:
-			"Thank you! Your message has been sent successfully to Dominic's inbox.",
-	};
+		return {
+			success: true,
+			message: "✓ Thank you! Your message has been sent successfully.",
+		};
+	} catch (error: unknown) {
+		// Catch block error handling compliant with your Biome rules
+		const errorMessage =
+			error instanceof Error ? error.message : "Internal Server Error";
+		return {
+			success: false,
+			message: `Transmission failure: ${errorMessage}`,
+		};
+	}
 }

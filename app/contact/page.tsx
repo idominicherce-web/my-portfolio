@@ -16,13 +16,12 @@ const initialState: FormState = {
  * - Harnesses child component field isolation via `useFormStatus()` to monitor submission traffic,
  * safely toggling disabling properties, text prompts, and inline success/error UI blocks.
  */
-
 export default function ContactPage() {
 	// useActionState receives the server action, handles async state tracking, and manages return states
 	const [state, formAction] = useActionState(submitContactForm, initialState);
 
 	return (
-		<main className="flex-1 max-w-md w-full mx-auto p-8 flex flex-col justify-center min-h-[calc(100vh-65px)] gap-6">
+		<main className="flex-1 max-w-md w-full mx-auto p-8 flex flex-col justify-center min-h-[calc(100vh-65px)] gap-6 bg-background text-foreground transition-colors duration-200">
 			<div>
 				<h1 className="text-3xl font-bold tracking-tight mb-2 bg-linear-to-r from-blue-400 to-indigo-500 bg-clip-text text-transparent">
 					Get in Touch
@@ -59,7 +58,8 @@ export default function ContactPage() {
 						name="email"
 						required
 						placeholder="you@example.com"
-						className="w-full p-3 rounded-xl border border-zinc-800 bg-background/30 text-foreground placeholder:text-muted-foreground text-sm focus:border-blue-500 focus:outline-none transition-colors"
+						/* UPDATED: standard semantic token variables used to support full v4 utility classes */
+						className="w-full p-3 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground text-sm focus:border-blue-500 focus:outline-hidden transition-colors duration-200"
 					/>
 				</div>
 
@@ -76,7 +76,8 @@ export default function ContactPage() {
 						required
 						rows={5}
 						placeholder="Write your message here..."
-						className="w-full p-3 rounded-xl border border-zinc-800 bg-background/30 text-foreground placeholder:text-muted-foreground text-sm focus:border-blue-500 focus:outline-none transition-colors resize-none"
+						/* UPDATED: standard semantic token variables used to support full v4 utility classes */
+						className="w-full p-3 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground text-sm focus:border-blue-500 focus:outline-hidden transition-colors duration-200 resize-none"
 					/>
 				</div>
 
