@@ -9,11 +9,11 @@ import ProjectCard from "@/components/ProjectCard";
  * to dynamically map and feed clean object properties down into separate <ProjectCard> instances
  * structured inside a responsive grid layout.
  */
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+// const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /* ADDED: 'async' keyword to make it an Async Server Component */
 export default async function ProjectsPage() {
-	await delay(1000); // Simulate a delay for demonstration purposes
+	// await delay(1000); // Simulate a delay for demonstration purposes
 
 	return (
 		<main className="flex-1 max-w-4xl w-full mx-auto p-8 flex flex-col gap-6 justify-center min-h-[calc(100vh-65px)]">
