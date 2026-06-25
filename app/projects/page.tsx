@@ -9,8 +9,12 @@ import ProjectCard from "@/components/ProjectCard";
  * to dynamically map and feed clean object properties down into separate <ProjectCard> instances
  * structured inside a responsive grid layout.
  */
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-export default function ProjectsPage() {
+/* ADDED: 'async' keyword to make it an Async Server Component */
+export default async function ProjectsPage() {
+	await delay(1000); // Simulate a delay for demonstration purposes
+
 	return (
 		<main className="flex-1 max-w-4xl w-full mx-auto p-8 flex flex-col gap-6 justify-center min-h-[calc(100vh-65px)]">
 			<div>
@@ -24,7 +28,7 @@ export default function ProjectsPage() {
 			</div>
 
 			{/* THE DYNAMIC CANVAS GRID MATRIX: 
-               	Automatically structures columns based on screen breakpoint sizes */}
+                Automatically structures columns based on screen breakpoint sizes */}
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
 				{projectsData.map((project) => (
 					<ProjectCard key={project.slug} project={project} />
