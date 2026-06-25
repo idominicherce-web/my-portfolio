@@ -1,8 +1,8 @@
-// const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
-export default function AboutPage() {
+export default async function AboutPage() {
 	// Simulate a temporary server transmission delay to watch the skeleton stream
-	// await delay(1500);
+	await delay(750);
 
 	return (
 		<main className="flex-1 max-w-3xl w-full mx-auto p-8 flex flex-col gap-6 justify-center min-h-[calc(100vh-65px)]">
@@ -16,7 +16,7 @@ export default function AboutPage() {
 				</p>
 			</div>
 
-			<div className="flex flex-col gap-4 text-foreground/90 leading-relaxed text-sm md:text-base">
+			<div className="flex flex-col gap-4 text-foreground/90 leading-relaxed text-sm md:text-base text-justify wrap-break-word">
 				<p>
 					Hello! I am Dominic, a developer dedicated to building clean,
 					accessible, and highly scalable user interfaces. Currently, I am
@@ -59,19 +59,16 @@ export default function AboutPage() {
 			</div>
 			<div className="mt-4 p-5 rounded-xl border border-border bg-card/50 transition-colors duration-200">
 				<h2 className="text-lg font-semibold text-foreground mb-3">
-					Core Tech Stack
+					Additional Tech Stack & Experience
 				</h2>
 				<div className="flex flex-wrap gap-2">
 					{[
-						"Next.js",
-						"React 19",
-						"Tailwind v4",
-						"TypeScript",
-						"Biome",
-						"Neon DB",
-						"Vercel Deployment",
-						"Android Studio",
-						"Unity Game Engine",
+						"Python Machine Learning",
+						"Database Design & Management",
+						"Git Version Control",
+						"Agile Project Management",
+						"Figma UI/UX Design",
+						"Canva Graphic Design",
 					].map((skill) => (
 						<span
 							key={skill}
