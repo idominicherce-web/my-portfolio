@@ -61,44 +61,50 @@ export default function ParallaxHero() {
 
 			{/* FLOATING ICONS */}
 
+			{/* Icon 1: Code2 */}
 			<motion.div
 				style={{ y: icon1Y, rotate: rotate1 }}
-				className="absolute top-[15%] left-[10%] text-blue-500"
+				className="absolute top-[12%] left-[4%] md:left-[10%] text-blue-500 opacity-40 md:opacity-100"
 			>
-				<Code2 size={80} />
+				<Code2 className="w-10 h-10 md:w-20 md:h-20" />
 			</motion.div>
 
+			{/* Icon 2: Database */}
 			<motion.div
 				style={{ y: icon2Y, rotate: rotate2 }}
-				className="absolute top-[65%] left-[15%] text-indigo-500"
+				className="absolute top-[80%] md:top-[65%] left-[6%] md:left-[15%] text-indigo-500 opacity-40 md:opacity-100"
 			>
-				<Database size={70} />
+				<Database className="w-9 h-9 md:w-17.5 md:h-17.5" />
 			</motion.div>
 
+			{/* Icon 3: Server */}
 			<motion.div
 				style={{ y: icon3Y, rotate: rotate1 }}
-				className="absolute top-[20%] right-[12%] text-cyan-500"
+				className="absolute top-[15%] right-[4%] md:right-[12%] text-cyan-500 opacity-40 md:opacity-100"
 			>
-				<Server size={90} />
+				<Server className="w-12 h-12 md:w-22.5 md:h-22.5" />
 			</motion.div>
 
+			{/* Icon 4: Cloud */}
 			<motion.div
 				style={{ y: icon4Y, rotate: rotate2 }}
-				className="absolute top-[75%] right-[15%] text-violet-500"
+				className="absolute top-[82%] md:top-[75%] right-[6%] md:right-[15%] text-violet-500 opacity-40 md:opacity-100"
 			>
-				<Cloud size={75} />
+				<Cloud className="w-10 h-10 md:w-18.75 md:h-18.75" />
 			</motion.div>
 
+			{/* Icon 5: MonitorSmartphone - Hidden on mobile viewports for clutter control */}
 			<motion.div
 				style={{ y: icon5Y, rotate: rotate1 }}
-				className="absolute top-[35%] left-[80%] text-sky-500"
+				className="hidden md:block absolute top-[35%] left-[80%] text-sky-500"
 			>
 				<MonitorSmartphone size={65} />
 			</motion.div>
 
+			{/* Icon 6: Braces - Hidden on mobile viewports for clutter control */}
 			<motion.div
 				style={{ y: icon6Y, rotate: rotate2 }}
-				className="absolute top-[45%] left-[5%] text-purple-500"
+				className="hidden md:block absolute top-[45%] left-[5%] text-purple-500"
 			>
 				<Braces size={60} />
 			</motion.div>
@@ -115,7 +121,7 @@ export default function ParallaxHero() {
 					Dominic Herce
 				</h1>
 
-				<p className="mt-4 text-muted-foreground max-w-lg mx-auto">
+				<p className="mt-4 text-muted-foreground max-w-lg mx-auto text-sm md:text-base">
 					Building modern web applications using Next.js, React, TypeScript, and
 					cloud-native technologies.
 				</p>
